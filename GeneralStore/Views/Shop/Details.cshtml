@@ -1,0 +1,52 @@
+﻿@model Item
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Shop")">Shop</a></li>
+            <li class="breadcrumb-item active">@Model.Name</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <!-- Item Details -->
+        <div class="col-md-6">
+            <h1>@Model.Name</h1>
+            <p class="lead">@Model.Price.ToString("C")</p>
+            <div class="badge bg-@(Model.StockQuantity > 0 ? "success" : "danger")">
+                @(Model.StockQuantity > 0 ? "In Stock" : "Out of Stock")
+            </div>
+            <div class="mt-4">
+                <h5>Description</h5>
+                <p>@Model.Description</p>
+            </div>
+            <div class="mt-4">
+                <h5>Details</h5>
+                <ul>
+                    <li>Category: @Model.Category</li>
+                    <li>Quantity Available: @Model.StockQuantity</li>
+                </ul>
+            </div>
+            @if (Model.StockQuantity > 0)
+            {
+                <a href="@Url.Action("Create", "Order", new { itemId = Model.ItemId })"
+                   class="btn btn-primary btn-lg mt-4">Order Now</a>
+            }
+        </div>
+        <!-- Similar Items -->
+        <div class="col-md-6">
+            <h3 class="mt-5">Similar Items</h3>
+            <div class="row">
+                @foreach (var i in new[] { 1, 2, 3 }) // This would be replaced with actual similar items - still working on this
+                {
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>Similar Item @i</h6>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

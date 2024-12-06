@@ -1,0 +1,34 @@
+﻿@model List<Item>
+
+<div class="position-relative overflow-hidden p-5 text-center bg-light">
+    <div class="col-md-8 mx-auto my-5">
+        <h1 class="display-4 fw-bold">Discover Unique Treasures Daily</h1>
+        <p class="lead mb-4">From vintage finds to modern necessities</p>
+        <a href="@Url.Action("Index", "Shop")" class="btn btn-primary btn-lg px-4">Shop Now</a>
+    </div>
+
+    <div class="position-absolute top-0 end-0 w-50 h-100" style="background: #4CAF50; opacity: 0.1; transform: skewX(-20deg);"></div>
+</div>
+
+<!-- Featured Items  -->
+@if (Model.Any())
+{
+    <div class="container mt-5">
+        <h2>Featured Items</h2>
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text">@item.Price.ToString("C")</p>
+                            <a href="@Url.Action("Details", "Shop", new { id = item.ItemId })"
+                               class="btn btn-outline-primary stretched-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

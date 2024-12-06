@@ -1,0 +1,48 @@
+﻿@model List<Item>
+
+<div class="container">
+    <h2>Inventory Management</h2>
+
+    <!-- Add New Item Form -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Add New Item</h5>
+            <form method="post" asp-action="AddItem">
+             
+                <button type="submit" class="btn btn-primary">Add Item</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Current Inventory -->
+    <h3>Current Inventory</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>@item.StockQuantity</td>
+                    <td>@item.Category</td>
+                    <td>@(item.StockQuantity > 0 ? "In Stock" : "Out of Stock")</td>
+                    <td>
+                        <a href="@Url.Action("EditItem", "Admin", new { id = item.ItemId })"
+                           class="btn btn-sm btn-primary">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

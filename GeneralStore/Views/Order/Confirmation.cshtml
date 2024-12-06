@@ -1,0 +1,22 @@
+﻿@model GeneralStore.Models.Order
+
+<h2>Order Confirmation</h2>
+
+<p>Thank you for your order!</p>
+
+<div>
+    <h4>Order Details</h4>
+    <p>Order ID: @Model.OrderId</p>
+    <p>Customer Name: @Model.CustomerName</p>
+    <p>Customer Email: @Model.CustomerEmail</p>
+    <p>Order Date: @Model.OrderDate</p>
+    <p>Status: @Model.Status</p>
+
+    <h4>Items</h4>
+    <ul>
+        @foreach (var item in Model.Items)
+        {
+            <li>@item.Name - Price: @item.Price.ToString("C")</li>
+        }
+    </ul>
+</div>
