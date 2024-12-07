@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace GeneralStore.Models
+﻿namespace GeneralStore.Models
 {
     public class AdminViewModel
     {
-        public List<Order> Orders { get; set; }
-        public List<Item> Items { get; set; }
+        public List<Order> Orders { get; set; } = new List<Order>();
+        public List<Item> Items { get; set; } = new List<Item>();
     }
 }
