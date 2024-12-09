@@ -51,7 +51,7 @@ namespace GeneralStore.Controllers
 
             try
             {
-                // Explicitly save the order to avoid tracking conflicts
+                // Explicitly save the order 
                 _context.Orders.Add(order);
                 _context.SaveChanges();
 
