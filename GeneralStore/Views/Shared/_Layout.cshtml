@@ -45,40 +45,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h5>About Us</h5>
+                    <h5>Navigation</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Location</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+                        <li><a asp-controller="Admin" asp-action="Index">Admin</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h5>Shop</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">All Products</a></li>
-                        <li><a href="#">Featured Items</a></li>
-                        <li><a href="#">Special Offers</a></li>
+                        <li><a asp-controller="Shop" asp-action="Index">All Products</a></li>
+                        <li><a asp-controller="Shipping" asp-action="Calculate">Shipping Calculator</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3">
-                    <h5>Support</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping Info</a></li>
-                        <li><a href="#">Returns</a></li>
-                    </ul>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2024 General Store - All rights reserved</p>
                 </div>
-                <div class="col-md-3">
-                    <h5>Connect</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center mt-3">
-                &copy; 2024 General Store - All rights reserved
             </div>
         </div>
     </footer>
